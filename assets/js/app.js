@@ -6,7 +6,7 @@ var a = moment().format('LLLL');
 // Other formatting on moment.js guide
 
 // Steps to complete:
-// [] Setup Firebase app* to store data
+// [x] Setup Firebase app to store data
 // [] When adding trains, admin users can submit:
 // [] Train Name
 // [] Destination
@@ -16,3 +16,31 @@ var a = moment().format('LLLL');
 // [] Calculates when next train will arrive (relative to the current time)
 // [] Users from multiple machines can view same train times
 
+
+
+
+// VARIABLES ====================
+// 
+
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyBFCC6me05S9bj-uKClv29LHwBZV0jDnHc",
+    authDomain: "train-time-6f8ee.firebaseapp.com",
+    databaseURL: "https://train-time-6f8ee.firebaseio.com",
+    projectId: "train-time-6f8ee",
+    storageBucket: "",
+    messagingSenderId: "787951890946"
+};
+firebase.initializeApp(config);
+
+
+
+
+// FUNCTIONS ====================
+//
+
+
+
+
+// MAIN PROCESS ====================
+// 
