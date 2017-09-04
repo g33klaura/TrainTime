@@ -39,9 +39,38 @@
 
 		<!-- Third row, w/ children columns -->
 		<div class="row">
+			<fieldset>
 			<div class="col s12 center-align" id="add-train-form">
-				<h2>Add Train Form will go here</h2>
+				<!-- <h2>Add Train Form will go here</h2> -->
+				<div class="row">
+					<div class="input-field col s6">
+						<input type="text" id="train-name" class="validate">
+						<label for="train-name">Train Name</label>
+					</div>
+					<div class="input-field col s6">
+						<input type="text" id="destination" class="validate">
+						<label for="destination">Destination City</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input type="text" id="first-train-time" class="validate">
+						<label for="first-train-time">First Train Time (HH:MM military time)</label>
+					</div>
+					<div class="input-field col s6">
+						<input type="text" id="frequency" class="validate">
+						<label for="frequency">Train Frequency (min)</label>
+					</div>
+				</div>
+				<div class="row">
+					<!-- submit button goes here -->
+					<div class="col s6 offset-s6">
+						<button class="btn waves-effect waves-light" type="submit" id="add-train" name="action">Add Train<i class="material-icons right">send</i>
+						</button>
+					</div>
+				</div>
 			</div>
+			</fieldset>
 		</div>
 
 
