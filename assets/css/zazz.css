@@ -1,1 +1,15 @@
 /* Since I can't target the col classes, maybe can just target rows? */
+/*font-family: 'Droid Serif', serif;*/
+/*font-family: 'Montserrat', sans-serif;*/
+
+body {
+	font-family: 'Droid Serif', serif;
+}
+
+h1 {
+	font-weight: 700;
+}
+
+fieldset {
+	font-family: 'Montserrat', sans-serif;
+}
