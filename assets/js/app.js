@@ -29,19 +29,23 @@ firebase.initializeApp(config);
 // VARIABLES ====================
 // 
 
+// Get a reference to the database service
 var database = firebase.database();
 
+// Empty variables for holding train data????
 var trainName = '';
-var destination = '';
+var dest = '';
 var freq = '';
 var next = '';
 var minAway = '';
 
-// Need array of objects for form inputs????
+// OR array of objects for form inputs????
+// How would this write new objects using Firebase??
+/*
 var trainsArray = [
 	{ train1: 
 		{
-		name: "",
+		trainName: "",
 		dest: "",
 		freq: "",
 		next: "",
@@ -49,16 +53,17 @@ var trainsArray = [
 		},
 	  train2:
 	  {
-	  	name: "",
+	  	trainName: "",
 		dest: "",
 		freq: "",
 		next: "",
 		minAway: ""
 	  },
 	},
-];
+]; 
+*/
 
-// Testing moment.js
+// Testing moment.js  ~WORKS
 var a = moment().format('LLLL');
 	console.log(a);
 
@@ -73,6 +78,7 @@ var dbRefObject = firebase.database().ref()
 // Synce object changes
 dbRefObject.on('value', snap => {
 	// console.log(snap.val());
+	// preObject var = getElementById set above
 	preObject.innerText = JSON.stringify(snap.val(), null, 3);
 });
 
@@ -85,8 +91,22 @@ dbRefObject.on('value', snap => {
 // FUNCTIONS ====================
 //
 
+// function using .set() to save data to Firebase
+// grabs input from form to set??
+// minAway not set by form, but updates relative to next var??
+function writeTrainData(trainName, dest, freq, next) {
+	database.ref('train/' + trainName).set({
+		dest: city,
+		freq: minutes,
+		next: time
+	});
+};
 
 
 
 // MAIN PROCESS ====================
 // 
+
+// Take input values from form
+// Store in variables
+// Then use those vars to update the writeTrainData function
