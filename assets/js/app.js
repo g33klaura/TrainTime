@@ -68,7 +68,7 @@ var a = moment().format('LLLL');
 	console.log(a);
 
 
-// Following Firebase tutorial****
+// Following Firebase tutorial ====================
 // Get elements
 var preObject = document.getElementById('object');
 // Create references
@@ -81,6 +81,7 @@ dbRefObject.on('value', snap => {
 	// preObject var = getElementById set above
 	preObject.innerText = JSON.stringify(snap.val(), null, 3);
 });
+// ========================================
 
 
 
@@ -96,9 +97,9 @@ dbRefObject.on('value', snap => {
 // minAway not set by form, but updates relative to next var??
 function writeTrainData(trainName, dest, freq, next) {
 	database.ref('train/' + trainName).set({
-		dest: city,
-		freq: minutes,
-		next: time
+		dest: 'city',
+		freq: 'minutes',
+		next: 'time'
 	});
 };
 
@@ -107,6 +108,38 @@ function writeTrainData(trainName, dest, freq, next) {
 // MAIN PROCESS ====================
 // 
 
-// Take input values from form
-// Store in variables
-// Then use those vars to update the writeTrainData function
+$(document).ready(function() { 
+	
+	// Take input values from form
+	// Store in variables
+	// Then use those vars to update the writeTrainData function
+
+	// On-click for submit button
+	$('#add-train').on('click', function(event) {
+
+		event.preventDefault();
+
+		// Grab input value for train name
+		// Write to trainName var
+		trainName = $('#train-name').val().trim();
+
+		// Update HTML via Firebase*****
+
+		// Update HTML via jQuery **TESTING**
+		$('.name').text(trainName);
+
+		// Write to destination var
+		dest = $('#destination').val().trim();
+
+		// Update HTML via Firebase*****
+
+		// Update HTML via jQuery **TESTING**
+		$('.destination').text(dest);
+
+
+		// Happens LAST in function??
+		// Call function to set Firebase data
+		writeTrainData();
+	});
+
+})	
