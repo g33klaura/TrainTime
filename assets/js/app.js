@@ -1,6 +1,8 @@
 // JavaScript for 'TrainTime' Assignment
 // Steps to complete:
 // [x] Setup Firebase app to store data
+// [] Adding train data with form creates table data (GET THIS WORKING FIRST)
+// [] THEN needs to send to Firebase to update page data
 // [] When adding trains, admin users can submit:
 // [] Train Name
 // [] Destination
@@ -35,12 +37,33 @@ var freq = '';
 var next = '';
 var minAway = '';
 
+// Need array of objects for form inputs????
+var trainsArray = [
+	{ train1: 
+		{
+		name: "",
+		dest: "",
+		freq: "",
+		next: "",
+		minAway: ""
+		},
+	  train2:
+	  {
+	  	name: "",
+		dest: "",
+		freq: "",
+		next: "",
+		minAway: ""
+	  },
+	},
+];
+
 // Testing moment.js
 var a = moment().format('LLLL');
 	console.log(a);
 
 
-// Following Firebase tutorial
+// Following Firebase tutorial****
 // Get elements
 var preObject = document.getElementById('object');
 // Create references
@@ -48,7 +71,10 @@ var preObject = document.getElementById('object');
 // var dbRefObject = firebase.database().ref().child('object');
 var dbRefObject = firebase.database().ref()
 // Synce object changes
-dbRefObject.on('value', snap => console.log(snap.val()));
+dbRefObject.on('value', snap => {
+	// console.log(snap.val());
+	preObject.innerText = JSON.stringify(snap.val(), null, 3);
+});
 
 
 
