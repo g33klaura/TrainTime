@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
     <title>Train Time!</title>
+
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet">
 
@@ -82,11 +83,14 @@
 		</div>
 
 		<!-- Third row, w/ children columns -->
+		<!-- Add Train Form -->
 		<div class="row">
 			<fieldset>
-			<div class="col s12 center-align" id="add-train-form">
+			<!-- Change to form instead of div?? -->
+			<form class="col s12 center-align" id="add-train-form">
 				<!-- <h2>Add Train Form will go here</h2> -->
 				<div class="row">
+					<!-- <h5>Add to schedule:</h5> -->
 					<div class="input-field col s6">
 						<input type="text" id="train-name" class="validate">
 						<label for="train-name">Train Name</label>
@@ -113,20 +117,20 @@
 						</button>
 					</div>
 				</div>
-			</div>
+			</form>
 			</fieldset>
 		</div>
 
 		<div class="row">
 			<div class="col s12 center-align">
-				<!-- Maybe put dungeon train gif here (if doing funny train names) -->
+				<!-- Some kinda train image here? -->
 			</div>
 		</div>
-
 	</div>
 	<!-- ^^Closes overall container class -->
 
 	<!-- ========== SCRIPT TAGS ========== -->
+	<!-- Link to Firebase js -->
 	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 
 	<!-- Link to Moment.js -->
@@ -138,10 +142,10 @@
 	<!-- Link to jquery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<!-- Materialize Compiled and minified JavaScript -->
+	<!-- Materialize Compiled and minified js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-	<!-- My JavaScript -->
+	<!-- My js -->
 	<script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
