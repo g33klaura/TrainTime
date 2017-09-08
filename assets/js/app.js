@@ -32,6 +32,8 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
+var trainRef = firebase.database().ref('train');
+
 // Empty variables for holding train data????
 var trainName = '';
 var dest = '';
@@ -118,32 +120,33 @@ $(document).ready(function() {
 	// Following Firebase Form tutorial ====================
 	// Adds on-submit for whole form rather than on-click of button.... interesting.... (otherwise same as what i wrote)
 	$('#add-train-form').on('submit', event => {
+		
 		event.preventDefault();
 	
-		// Grab input value for train name
-		// Write to trainName var
+		// [NEXT] Put in code so won't allow submit with empty data****
+
+
+		// Grab inputs from form
 		trainName = $('#train-name').val().trim();
-
-		// Update HTML via Firebase*****
-
-		// Update HTML via jQuery **TESTING**
-		$('.name').text(trainName);
-
-		// Write to destination var
 		dest = $('#destination').val().trim();
+		freq = $('#frequency').val().trim();
+		next = $('#first-train-time').val().trim();
+		
+			// TESTING
+			console.log(trainName, dest, next, freq);
 
-		// Update HTML via Firebase*****
+		// Using var 'database' that we set to FB object earlier
+		// Pushes data, but assigns random "name" to data each time....
+		database.ref('train').push({
+			trainName,
+			dest,
+			next,
+			freq,
+		});
 
-		// Update HTML via jQuery **TESTING**
-		$('.destination').text(dest);
-
-
-		// Happens LAST in function??
-		// Call function to set Firebase data
-		writeTrainData();
 
 		// Empty inputs after submit
-		$('#train-name, #destination').val('');
+		$('#add-train-form').trigger('reset');
 
 	});
 
