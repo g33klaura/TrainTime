@@ -105,6 +105,7 @@ function writeTrainData(trainName, dest, freq, next) {
 
 
 
+
 // MAIN PROCESS ====================
 // 
 
@@ -114,11 +115,11 @@ $(document).ready(function() {
 	// Store in variables
 	// Then use those vars to update the writeTrainData function
 
-	// On-click for submit button
-	$('#add-train').on('click', function(event) {
-
+	// Following Firebase Form tutorial ====================
+	// Adds on-submit for whole form rather than on-click of button.... interesting.... (otherwise same as what i wrote)
+	$('#add-train-form').on('submit', event => {
 		event.preventDefault();
-
+	
 		// Grab input value for train name
 		// Write to trainName var
 		trainName = $('#train-name').val().trim();
@@ -140,6 +141,11 @@ $(document).ready(function() {
 		// Happens LAST in function??
 		// Call function to set Firebase data
 		writeTrainData();
+
+		// Empty inputs after submit
+		$('#train-name, #destination').val('');
+
 	});
+
 
 })	
