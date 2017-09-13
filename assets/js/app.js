@@ -34,6 +34,7 @@ var database = firebase.database();
 
 var trainRef = firebase.database().ref('train');
 
+// [] SET THESE IN FIREBASE FIRST!!!!!
 // Empty variables for holding train data????
 var trainName = '';
 var dest = '';
@@ -99,13 +100,17 @@ dbRefObject.on('value', snap => {
 // minAway not set by form, but updates relative to next var??
 function writeTrainData(trainName, dest, freq, next) {
 	database.ref('train/' + trainName).set({
+		// trainName: 'name',
 		dest: 'city',
 		freq: 'minutes',
 		next: 'time'
 	});
 };
 
-
+// Double-check if this is working/or not when back online*******
+function errorObject() {
+	console.log("The read failed: " + errorObject);
+};
 
 
 // MAIN PROCESS ====================
@@ -136,7 +141,7 @@ $(document).ready(function() {
 			console.log(trainName, dest, next, freq);
 
 		// Using var 'database' that we set to FB object earlier
-		// Pushes data, but assigns random "name" to data each time....
+		// Pushes data, but assigns random "name" to data each time.... (Think don't worry about this for now... ask in class...)
 		database.ref('train').push({
 			trainName,
 			dest,
@@ -152,3 +157,4 @@ $(document).ready(function() {
 
 
 })	
+// ^^Closes doc-on-ready
