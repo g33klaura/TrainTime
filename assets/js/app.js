@@ -46,7 +46,7 @@ var minAway = '';
 
 // Testing moment.js  ~WORKS
 var a = moment().format('LLLL');
-	console.log(a);
+	// console.log(a);
 
 
 
@@ -106,7 +106,16 @@ $(document).ready(function() {
 
 
 		// Push input values to Fb
-		// CODE HERE....
+		database.ref().set( {
+			trainName: trainName,
+			dest: dest,
+			freq: freq,
+			firstTrain
+		});
+
+		var markup = '<tr><td>' + trainName + '</td><td>' + dest + '</td><td>' + freq + '</td></tr>';
+
+		$('table tbody').append(markup);
 
 
 		// Empty inputs after submit
