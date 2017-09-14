@@ -110,13 +110,13 @@ $(document).ready(function() {
 			trainName: trainName,
 			dest: dest,
 			freq: freq,
-			firstTrain
+			firstTrain: firstTrain,
 		});
 
-		var markup = '<tr><td>' + trainName + '</td><td>' + dest + '</td><td>' + freq + '</td></tr>';
+		var markup = '<tr><td>' + trainName + '</td><td>' + dest + '</td><td>' + freq + '</td><td>' + next + '</td><td>' + minAway + '</td></tr>';
 
 		$('table tbody').append(markup);
-
+		// Half-works. Resets on page refresh
 
 		// Empty inputs after submit
 		$('#add-train-form').trigger('reset');
