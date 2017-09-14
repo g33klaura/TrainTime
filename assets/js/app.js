@@ -32,7 +32,7 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
-var trainRef = firebase.database().ref('train');
+var trainRef = firebase.database().ref('trains');
 
 // [] SET THESE IN FIREBASE FIRST!!!!!
 // Empty variables for holding train data????
@@ -41,34 +41,16 @@ var dest = '';
 var freq = '';
 var next = '';
 var minAway = '';
+// ^^might just need to work with Moment, not Fb
 
-// OR array of objects for form inputs????
-// How would this write new objects using Firebase??
-/*
-var trainsArray = [
-	{ train1: 
-		{
-		trainName: "",
-		dest: "",
-		freq: "",
-		next: "",
-		minAway: ""
-		},
-	  train2:
-	  {
-	  	trainName: "",
-		dest: "",
-		freq: "",
-		next: "",
-		minAway: ""
-	  },
-	},
-]; 
-*/
 
 // Testing moment.js  ~WORKS
 var a = moment().format('LLLL');
 	console.log(a);
+
+// var b = moment().hour(12).format('HH mm');
+// 	console.log(b);
+
 
 
 // Following Firebase tutorial ====================
@@ -98,19 +80,27 @@ dbRefObject.on('value', snap => {
 // function using .set() to save data to Firebase
 // grabs input from form to set??
 // minAway not set by form, but updates relative to next var??
-function writeTrainData(trainName, dest, freq, next) {
-	database.ref('train/' + trainName).set({
-		// trainName: 'name',
-		dest: 'city',
-		freq: 'minutes',
-		next: 'time'
-	});
-};
+// function writeTrainData(trainName, dest, freq, next) {
+// 	// database.ref('train/' + trainName).set({
+// 	database.ref('train/').set({
+// 		trainName: 'name',
+// 		dest: 'city',
+// 		freq: 'minutes',
+// 		next: 'time'
+// 	});
+// };
 
 // Double-check if this is working/or not when back online*******
-function errorObject() {
-	console.log("The read failed: " + errorObject);
-};
+// function errorObject() {
+// 	console.log("The read failed: " + errorObject);
+// };
+
+// function calcMinAway(argument) {
+// 	var aFreq = moment( [] )
+// }
+
+
+
 
 
 // MAIN PROCESS ====================
@@ -142,19 +132,25 @@ $(document).ready(function() {
 
 		// Using var 'database' that we set to FB object earlier
 		// Pushes data, but assigns random "name" to data each time.... (Think don't worry about this for now... ask in class...)
-		database.ref('train').push({
+		database.ref('trains').push({
 			trainName,
 			dest,
 			next,
 			freq,
 		});
 
+		database.ref().on('value', function(snapshot) {
+			// console.log(snapshot.val());
+			console.log(snapshot.val().trains);
+			// console.log(snapshot.val().dest);
+			// console.log(snapshot.val().next);
+			// console.log(snapshot.val().freq);
+		});
 
 		// Empty inputs after submit
 		$('#add-train-form').trigger('reset');
 
 	});
-
-
+	// ^^Closes train-form submit
 })	
 // ^^Closes doc-on-ready
