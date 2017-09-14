@@ -45,6 +45,56 @@ Toontown (LA), California
 */
 
 
+// function using .set() to save data to Firebase
+// grabs input from form to set??
+// minAway not set by form, but updates relative to next var??
+// function writeTrainData(trainName, dest, freq, next) {
+// 	// database.ref('train/' + trainName).set({
+// 	database.ref('train/').set({
+// 		trainName: 'name',
+// 		dest: 'city',
+// 		freq: 'minutes',
+// 		next: 'time'
+// 	});
+// };
+
+// Double-check if this is working/or not when back online*******
+// function errorObject() {
+// 	console.log("The read failed: " + errorObject);
+// };
+
+// function calcMinAway(argument) {
+// 	var aFreq = moment( [] )
+// }
+
+
+
+// [NEXT] Put in code so won't allow submit with empty data****
+
+
+
+// Fb object when i had it under 'trains', and would add a unique ID to each object
+// which I'm pretty sure was fucking things up for me
+
+// Using var 'database' that we set to FB object earlier
+		// Pushes data, but assigns random "name" to data each time.... (Think don't worry about this for now... ask in class...)
+		database.ref('trains').push({
+			trainName,
+			dest,
+			next,
+			freq,
+		});
+
+		database.ref().on('value', function(snapshot) {
+			// console.log(snapshot.val());
+			console.log(snapshot.val().trains);
+			// console.log(snapshot.val().dest);
+			// console.log(snapshot.val().next);
+			// console.log(snapshot.val().freq);
+		});
+
+
+
 // STUFF I WROTE BEFORE WATCHING TUTORIAL VIDEO
 // Just inside document-on-ready
 
