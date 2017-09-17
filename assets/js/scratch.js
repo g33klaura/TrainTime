@@ -130,6 +130,19 @@ Toontown (LA), California
 	});
 
 
+// Following Firebase tutorial ====================
+// Displays Fb object on page
+// Get elements
+// var preObject = document.getElementById('object');
+
+// var dbRefObject = firebase.database().ref()
+// Synce object changes
+// dbRefObject.on('value', snap => {
+	// console.log(snap.val());
+	// preObject variable is getElementById set above
+	// preObject.innerText = JSON.stringify(snap.val(), null, 3);
+// });
+// ========================================
 
 
 
