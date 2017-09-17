@@ -20,14 +20,12 @@
 
 	<div class="container">
 
-		<!-- First row, w/ children columns -->
 		<div class="row">
 			<header class="col s12">
 				<h1 class="center-align">Train Time, woo woo</h1>
 			</header>
 		</div>
 
-		<!-- Second row, w/ children columns -->
 		<div class="row">
 			<div class="col s12 center-align" id="train-schedule-table">
 				<h4>Current Train Schedule</h4>
@@ -44,33 +42,17 @@
 						</tr>
 					</thead>
 
-					<tbody class="center-align">
-						<!-- <tr>
-							<td class="name">Train 1</td>
-							<td class="destination"></td>
-							<td class="freq"></td>
-							<td class="next"></td>
-							<td class="min-away"></td>
-						</tr>
-						<tr>
-							<td class="name">Train 2</td>
-							<td class="destination"></td>
-							<td class="freq"></td>
-							<td class="next"></td>
-							<td class="min-away"></td>
-						</tr> -->
+					<tbody>
+						<!-- <td> will render with jQuery -->
 					</tbody>
 				</table>
 			</div>
 		</div>
 
-		<!-- Third row, w/ children columns -->
 		<!-- Add Train Form -->
 		<div class="row">
 			<fieldset>
-			<!-- Change to form instead of div?? -->
 			<form class="col s12 center-align" id="add-train-form">
-				<!-- <h2>Add Train Form will go here</h2> -->
 				<div class="row">
 					<!-- <h5>Add to schedule:</h5> -->
 					<div class="input-field col s6">
@@ -93,8 +75,8 @@
 					</div>
 				</div>
 				<div class="row">
-					<!-- submit button goes here -->
 					<div class="col s6 offset-s6">
+						<!-- submit button -->
 						<button class="btn waves-effect waves-light" type="submit" id="add-train" name="action">Add Train<i class="material-icons right">train</i>
 						</button>
 					</div>
@@ -106,8 +88,9 @@
 		<div class="row">
 			<div class="col s12 center-align">
 				<!-- Fancy image here? -->
-				<!-- Following along with Firebase example video -->
 				<pre class="left-align" id="object">
+				<!-- Following along with Firebase example video -->
+				<!-- Helped to visualize Fb syncing -->
 				</pre>
 			</div>
 		</div>
