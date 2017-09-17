@@ -3,14 +3,28 @@
 /* Since I can't target the col classes, maybe can just target rows? */
 
 body {
+	background-image: url(../images/bkgd_subway-lines.png);
 	font-family: 'Montserrat', sans-serif;
 }
 
+.container, #add-train-form {
+	background-color: #f4f6e9;
+}
+
+/*#train-schedule-table {
+	background-color: rgba(134,187,246, 0.5);
+}*/
+
 h1 {
 	font-weight: 600;
-	color: #26a69a;
+	/*color: #26a69a;*/
+	color: #498cf0;
 }
 
 th {
 	text-align: center;
+}
+
+td {
+	padding: 10px;
 }
