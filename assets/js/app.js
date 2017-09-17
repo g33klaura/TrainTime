@@ -53,26 +53,6 @@ var a = moment().format('LLLL');
 
 
 
-// Following Firebase tutorial ====================
-// Displays Fb object on page
-// Get elements
-// var preObject = document.getElementById('object');
-
-// var dbRefObject = firebase.database().ref()
-// Synce object changes
-// dbRefObject.on('value', snap => {
-	// console.log(snap.val());
-	// preObject variable is getElementById set above
-	// preObject.innerText = JSON.stringify(snap.val(), null, 3);
-// });
-// ========================================
-
-
-
-
-
-
-
 // FUNCTIONS ====================
 //
 
@@ -138,7 +118,7 @@ $(document).ready(function() {
 		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + 'Next TBD' + '</td><td>' + 'TBD' + '</td></tr>';
 
 		$('table tbody').append(markup);
-		// Half-works. Resets on page refresh......
+		// Half-works. Resets on page refresh  ~WORKS NOW! Wasn't grabbing from Fb after pushing properties: values
 	});
 
 })	
