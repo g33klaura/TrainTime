@@ -45,10 +45,24 @@ var next = '';
 var minAway = '';
 
 
-
+// MOMENT.JS WRANGLING ====================
+//
 // Testing moment.js  ~WORKS
 var a = moment().format('LLLL');
 	console.log(a);
+
+// var testTime = moment();
+var testTime = '01:00';
+// var milFormat = 'HH:mm';
+var testResult = moment(testTime, 'HH:mm').subtract(1, 'years');
+	console.log(testResult);
+
+var testFromNow = moment().fromNow();
+	// console.log(testFromNow);
+	// Just says 'a few seconds ago' when nothing entered into moment....
+
+
+console.log('-----------------------------');
 
 
 
