@@ -130,13 +130,13 @@ $(document).ready(function() {
 
 		var sv = snapshot.val();
 
-			console.log(sv.trainName);
-			console.log(sv.dest);
-			console.log(sv.freq);
-			console.log(sv.firstTrain); 
-			console.log(sv.dateAdded);
+			console.log('Train ' + sv.trainName + ': Heading to: ' + sv.dest + ' every ' + sv.freq + ' minutes. First train leaves at: ' + sv.firstTrain);
+			// console.log(sv.dest);
+			// console.log(sv.freq);
+			// console.log(sv.firstTrain); 
+			// console.log(sv.dateAdded);
 
-		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + 'Next Arrival TBD' + '</td><td>' + 'Minutes Away TBD' + '</td></tr>';
+		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + 'Next TBD' + '</td><td>' + 'TBD' + '</td></tr>';
 
 		$('table tbody').append(markup);
 		// Half-works. Resets on page refresh......
