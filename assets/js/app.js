@@ -1,10 +1,10 @@
 // JavaScript for 'TrainTime' Assignment
 // Steps to complete:
 // [x] Setup Firebase app to store data
-// [] Adding train data with form creates table data (GET THIS WORKING FIRST??)
-// [] THEN needs to send to Firebase to update page data
+// [x] Form submit needs to send to Firebase to update page data
+// [x] Adding train data with form creates table data
 // [] When adding trains, admin users can submit:
-// [] Train Name  [] Destination
+// [x] Train Name  [x] Destination
 // [] First Train Time  [] (in military time)
 // [] Frequency of scheduled train (in minutes)
 // [] Calculates when next train will arrive (relative to the current time)
@@ -56,16 +56,15 @@ var a = moment().format('LLLL');
 // Following Firebase tutorial ====================
 // Displays Fb object on page
 // Get elements
-var preObject = document.getElementById('object');
-// Create references to Fb OBJECT**
-// var dbRefObject = firebase.database().ref().child('object');
-var dbRefObject = firebase.database().ref()
+// var preObject = document.getElementById('object');
+
+// var dbRefObject = firebase.database().ref()
 // Synce object changes
-dbRefObject.on('value', snap => {
+// dbRefObject.on('value', snap => {
 	// console.log(snap.val());
 	// preObject variable is getElementById set above
-	preObject.innerText = JSON.stringify(snap.val(), null, 3);
-});
+	// preObject.innerText = JSON.stringify(snap.val(), null, 3);
+// });
 // ========================================
 
 
