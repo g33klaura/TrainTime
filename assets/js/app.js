@@ -38,6 +38,8 @@ var dest = '';
 var freq = '';
 var firstTrain = '';
 
+var dateAdded = '';
+
 // Variables that'll be calculated using Moment operations
 var next = '';
 var minAway = '';
@@ -46,7 +48,7 @@ var minAway = '';
 
 // Testing moment.js  ~WORKS
 var a = moment().format('LLLL');
-	// console.log(a);
+	console.log(a);
 
 
 
@@ -102,26 +104,43 @@ $(document).ready(function() {
 		firstTrain = $('#first-train-time').val().trim();
 		
 			// TESTING
-			console.log(trainName, dest, freq, firstTrain);
+			// console.log(trainName, dest, freq, firstTrain);
 
 
 		// Push input values to Fb
-		database.ref().set( {
+
+		// .set overwrites on Fb each time
+		// database.ref().set( {
+		// .push creates new Fb object each time
+		database.ref().push( {
 			trainName: trainName,
 			dest: dest,
 			freq: freq,
 			firstTrain: firstTrain,
+			dateAdded: firebase.database.ServerValue.TIMESTAMP,
 		});
-
-		var markup = '<tr><td>' + trainName + '</td><td>' + dest + '</td><td>' + freq + '</td><td>' + next + '</td><td>' + minAway + '</td></tr>';
-
-		$('table tbody').append(markup);
-		// Half-works. Resets on page refresh
 
 		// Empty inputs after submit
 		$('#add-train-form').trigger('reset');
 
 	});
 	// ^^Closes train-form submit
+
+	database.ref().orderByChild('dataAdded').on('child_added', function(snapshot) {
+
+		var sv = snapshot.val();
+
+			console.log(sv.trainName);
+			console.log(sv.dest);
+			console.log(sv.freq);
+			console.log(sv.firstTrain); 
+			console.log(sv.dateAdded);
+
+		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + 'Next Arrival TBD' + '</td><td>' + 'Minutes Away TBD' + '</td></tr>';
+
+		$('table tbody').append(markup);
+		// Half-works. Resets on page refresh......
+	});
+
 })	
 // ^^Closes doc-on-ready
