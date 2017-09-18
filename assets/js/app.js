@@ -43,6 +43,7 @@ var dateAdded = '';
 // Variables that'll be calculated using Moment operations
 var next = '';
 var minAway = '';
+// .subtract(1, 'years');
 var time = '';
 
 
@@ -52,15 +53,7 @@ var time = '';
 var a = moment().format('LLLL');
 	console.log(a);
 
-// var testTime = moment();
-var testTime = '01:00';
-// var milFormat = 'HH:mm';
-var testResult = moment(testTime, 'HH:mm').subtract(1, 'years');
-	console.log(testResult);
 
-var testFromNow = moment().fromNow();
-	// console.log(testFromNow);
-	// Just says 'a few seconds ago' when nothing entered into moment....
 
 
 console.log('-----------------------------');
@@ -74,8 +67,6 @@ console.log('-----------------------------');
 // Materialize.toast(message, displayLength, className, completeCallback);
   // Materialize.toast('Train added', 4000) 
   // 4000 is the duration of the toast
-
-// moment(this-will-be-new-var-holding-time-from-input-val, 'hh:mm').format('HH:mm')
 
 
 
@@ -104,22 +95,27 @@ $(document).ready(function() {
 			// TESTING
 			// console.log(trainName, dest, freq, firstTrain);
 
-		next = moment(firstTrain, 'hh:mm a').format('HH:mm');
+		// Converts time captured from form to 24-hour military time
+		// next = moment(firstTrain, 'hh:mm a').format('HH:mm');
+
+		// Converts military time entered and converts to regular old normal time
+		next = moment(firstTrain, 'HH:mm').format('h:mm a');
 			console.log(next);
 
-		// Push input values to Fb
 
-		// .set overwrites on Fb each time
-		// database.ref().set( {
-		// .push creates new Fb object each time
+		// Mathing for minutes away
+		
+
+
+		// Push input values to Fb
 		database.ref().push( {
 			trainName: trainName,
 			dest: dest,
 			freq: freq,
 			firstTrain: firstTrain,
 			dateAdded: firebase.database.ServerValue.TIMESTAMP,
-			// next: ,
-			// minAway: ,
+			// nextTrain: next,
+			next: next
 		});
 
 		// Empty inputs after submit
@@ -132,13 +128,13 @@ $(document).ready(function() {
 
 		var sv = snapshot.val();
 
-			console.log('Train ' + sv.trainName + ': Heading to: ' + sv.dest + ' every ' + sv.freq + ' minutes. First train leaves at: ' + sv.firstTrain);
+			console.log('Train ' + sv.trainName + ': Heading to: ' + sv.dest + ' every ' + sv.freq + ' minutes. Military time is: ' + sv.firstTrain + ' First train leaves at: ' + sv.next);
 			// console.log(sv.dest);
 			// console.log(sv.freq);
 			// console.log(sv.firstTrain); 
 			// console.log(sv.dateAdded);
 
-		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + 'Next TBD' + '</td><td>' + 'TBD' + '</td></tr>';
+		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + sv.next + '</td><td>' + 'TBD' + '</td></tr>';
 
 		$('table tbody').append(markup);
 		// Half-works. Resets on page refresh  ~WORKS NOW! Wasn't grabbing from Fb after pushing properties: values
