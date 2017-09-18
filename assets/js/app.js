@@ -43,6 +43,7 @@ var dateAdded = '';
 // Variables that'll be calculated using Moment operations
 var next = '';
 var minAway = '';
+var time = '';
 
 
 // MOMENT.JS WRANGLING ====================
@@ -70,9 +71,11 @@ console.log('-----------------------------');
 // FUNCTIONS ====================
 //
 
+// Materialize.toast(message, displayLength, className, completeCallback);
+  // Materialize.toast('Train added', 4000) 
+  // 4000 is the duration of the toast
 
-
-
+// moment(this-will-be-new-var-holding-time-from-input-val, 'hh:mm').format('HH:mm')
 
 
 
@@ -89,6 +92,8 @@ $(document).ready(function() {
 	$('#add-train-form').on('submit', event => {
 		
 		event.preventDefault();
+
+		console.log('Submit clicked');
 	
 		// Grab inputs from form
 		trainName = $('#train-name').val().trim();
@@ -99,6 +104,8 @@ $(document).ready(function() {
 			// TESTING
 			// console.log(trainName, dest, freq, firstTrain);
 
+		next = moment(firstTrain, 'hh:mm a').format('HH:mm');
+			console.log(next);
 
 		// Push input values to Fb
 
@@ -111,6 +118,8 @@ $(document).ready(function() {
 			freq: freq,
 			firstTrain: firstTrain,
 			dateAdded: firebase.database.ServerValue.TIMESTAMP,
+			// next: ,
+			// minAway: ,
 		});
 
 		// Empty inputs after submit
