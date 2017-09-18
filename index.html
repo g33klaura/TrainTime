@@ -31,7 +31,7 @@
 				<h4>Current Train Schedule</h4>
 
 				<!-- Train Schedule Table -->
-				<table class="bordered">
+				<table class="highlight centered">
 					<thead>
 						<tr>
 							<th>Train Name</th>
@@ -52,7 +52,7 @@
 		<!-- Add Train Form -->
 		<div class="row">
 			<!-- <fieldset> -->
-			<div class="col s12 center-align" id="add-train-form">
+			<form class="col s12 center-align" id="add-train-form">
 				<div class="row">
 					<h4>Schedule Additions</h4>
 					<div class="input-field col s6 ">
@@ -79,9 +79,13 @@
 						<!-- submit button -->
 						<button class="btn waves-effect waves-light blue darken-1" type="submit" id="add-train" name="action">Add Train<i class="material-icons right ">train</i>
 						</button>
+
+						<!-- Trying something fancy -->
+						<!-- <a class="btn" onclick="Materialize.toast('Train added', 4000)">Train added</a> -->
+
 					</div>
 				</div>
-			</div>
+			</form>
 			<!-- </fieldset> -->
 		</div>
 
