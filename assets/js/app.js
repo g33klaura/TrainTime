@@ -104,7 +104,24 @@ $(document).ready(function() {
 
 
 		// Mathing for minutes away
-		
+		// time = current time -- time/moment need formatting?*****
+		// time = moment();
+
+		var firstTimeConverted = moment(next, 'hh:mm a').subtract(1, 'years');
+			console.log('First time converted: ' + firstTimeConverted);
+
+		var diffTime = moment().diff(moment(firstTimeConverted), 'minutes');
+			console.log('Diff time in minutes: ' + diffTime);
+
+		var tRemainder = diffTime % freq;
+			console.log('Remainder of: ' + tRemainder);
+
+		var minTilTrainArrives = freq - tRemainder;
+			console.log('Minutes till train arrives: ' + minTilTrainArrives);
+
+		minAway = minTilTrainArrives;
+
+
 
 
 		// Push input values to Fb
@@ -115,7 +132,8 @@ $(document).ready(function() {
 			firstTrain: firstTrain,
 			dateAdded: firebase.database.ServerValue.TIMESTAMP,
 			// nextTrain: next,
-			next: next
+			next: next,
+			minAway: minAway
 		});
 
 		// Empty inputs after submit
