@@ -103,11 +103,14 @@ $(document).ready(function() {
 			console.log(next);
 
 
+		// ****************Have the code convert to military time, but DISPLAY on page as regular time, then keep Military to do calculations too.
+		// Cuz otherwise it's silly
+
 		// Mathing for minutes away
 		// time = current time -- time/moment need formatting?*****
 		// time = moment();
 
-		var firstTimeConverted = moment(next, 'hh:mm a').subtract(1, 'years');
+		var firstTimeConverted = moment(next, 'hh:mm').subtract(1, 'years');
 			console.log('First time converted: ' + firstTimeConverted);
 
 		var diffTime = moment().diff(moment(firstTimeConverted), 'minutes');
@@ -146,13 +149,13 @@ $(document).ready(function() {
 
 		var sv = snapshot.val();
 
-			console.log('Train ' + sv.trainName + ': Heading to: ' + sv.dest + ' every ' + sv.freq + ' minutes. Military time is: ' + sv.firstTrain + ' First train leaves at: ' + sv.next);
+			console.log('Train ' + sv.trainName + ': Heading to: ' + sv.dest + ' every ' + sv.freq + ' minutes. Military time is: ' + sv.firstTrain + ' First train leaves at: ' + sv.next + ' Train is ' + sv.minAway + ' minutes away. Better hurry!');
 			// console.log(sv.dest);
 			// console.log(sv.freq);
 			// console.log(sv.firstTrain); 
 			// console.log(sv.dateAdded);
 
-		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + sv.next + '</td><td>' + 'TBD' + '</td></tr>';
+		var markup = '<tr><td>' + sv.trainName + '</td><td>' + sv.dest + '</td><td>' + sv.freq + '</td><td>' + sv.next + '</td><td>' + sv.minAway + '</td></tr>';
 
 		$('table tbody').append(markup);
 		// Half-works. Resets on page refresh  ~WORKS NOW! Wasn't grabbing from Fb after pushing properties: values
