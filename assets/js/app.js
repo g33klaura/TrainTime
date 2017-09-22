@@ -3,12 +3,12 @@
 // [x] Setup Firebase app to store data
 // [x] Form submit needs to send to Firebase to update page data
 // [x] Adding train data with form creates table data
-// [] When adding trains, admin users can submit:
+// [x] When adding trains, admin users can submit:
 // [x] Train Name  [x] Destination
-// [] First Train Time  [] (in military time)
-// [] Frequency of scheduled train (in minutes)
-// [] Calculates when next train will arrive (relative to the current time)
-// [] Users from multiple machines can view same train times
+// [x] First Train Time  [x] (in military time)
+// [x] Frequency of scheduled train (in minutes)
+// [x] Calculates when next train will arrive in normal time
+// [x] Users from multiple machines can view same train times
 
 // Initialize Firebase
 var config = {
