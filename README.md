@@ -15,6 +15,6 @@ Train schedule application incorporating Firebase to host arrival and departure 
 <!-- git adds -->
 <!-- git add index.html -->
 <!-- git add README.md -->
-<!-- git add assets/css/zazz.js -->
+<!-- git add assets/css/zazz.css -->
 <!-- git add assets/js/scratch.js -->
 <!-- git add assets/js/app.js -->
