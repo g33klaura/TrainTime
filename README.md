@@ -1,20 +1,28 @@
-# TrainTime
-Train schedule application incorporating Firebase to host arrival and departure data
+<h1 align="center">TrainTime</h1>
 
-# Technologies used
-* Firebase, JavaScript, jQuery, Moment.js, Materialize.css
+<div align="center">Train schedule application incorporating Firebase to host arrival and departure data</div>
 
-# Description
-* This application incorporates Firebase to host arrival and departute data
-* The app retrieves and manipulates this information with Moment.js
-* The website provides up-to-date information about various trains, their arrival times, and how many minutes remaining until arriving at their station
+## Deployed Application
 
+[GitHub Pages] <https://g33klaura.github.io/TrainTime/>
 
-<!-- Thomas Shining Time Station -->
+<!-- ## Concept -->
 
-<!-- git adds -->
-<!-- git add index.html -->
-<!-- git add README.md -->
-<!-- git add assets/css/zazz.css -->
-<!-- git add assets/js/scratch.js -->
-<!-- git add assets/js/app.js -->
+## Technologies Used
+
+Firebase, JavaScript, jQuery, Moment.js, Materialize.css, HTML
+
+## Key Features
+
+* Incorporates Firebase to host arrival and departute data
+* Retrieves and manipulates this information with Moment.js
+* Provides up-to-date information about trains, arrival times, and how many minutes remaining until arrival
+* New trains can be added via form on the page
+
+### Screenshots
+
+###### Main screen
+
+![Main](./assets/images/trainscreen.png)
+
+*All aboard!* :station:
