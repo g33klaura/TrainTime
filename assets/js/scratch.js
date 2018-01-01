@@ -2,7 +2,7 @@
 // Train Name, Destination, Frequency (min), Next Arrival*, Min Away(relative to current time)
 /*
 Train 1
-War Rig
+Furiosa's War Rig
 Citadel
 120 min (2 hours)
 06:30a
